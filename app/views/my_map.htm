@@ -1,0 +1,30 @@
+<!-- my-map.htm 
+  Description:  This file contains the HTML template for a map using the Angular-Google Map 
+  API.  For mor information on the API go to  - http://angular-ui.github.io/
+  
+  For this map, we are displaying the current center point, as well as an option to turn on
+  a circle overlay around the city.   The Circle overlay is ediable by the user, allowing it to grow or 
+  shrink - for this example it is NOT draggable.
+
+  The map also contains a marker right on the City's center point.   When clicked the marker
+  displays a small pop-up window showing the city name as well as its lat/lon.
+
+-->
+<p> City Name: {{myCity.name}} <br />
+Current Center Point - Lat: {{map.center.latitude}} <br />
+Current Center Point - Lon: {{map.center.longitude}} </br />
+</p>
+<hr> 
+Show a circle around the city?: <input type="checkbox" ng-model="showCircle" ng-change='updateMapCenter()' /> </p>
+<ui-gmap-google-map center=map.center zoom=map.zoom>
+  <ui-gmap-marker coords="map.marker" idKey="map.name" >
+    <ui-gmap-window isIconVisableOnClick="false" >
+      <p> Welcome To: {{map.name}} <br /> 
+        City Lat: {{map.marker.latitude}} <br />
+        City Lon: {{map.marker.longitude}} <br />
+        <strong> We Hope You Like This Map App and Hire Ryan :) </strong>
+      </p>
+    </ui-gmap-window>
+  </ui-gmap-marker>
+  <ui-gmap-circle center="map.marker" radius="map.circle.radius" stroke="map.circle.stroke" fill="map.circle.fill" visible="map.circle.visible" geodesic="map.circle.geodesic" editable="map.circle.editable" draggable="map.circle.draggable" clickable="map.circle.clickable" control="map.circle.control"></ui-gmap-circle>
+</ui-gmap-google-map>

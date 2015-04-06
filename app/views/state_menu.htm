@@ -1,0 +1,7 @@
+<!-- state-menu.htm 
+  Description:  Very simple directive that displays the state menu. When the menu is changed,
+  it calls the checkCity method which will check to see if the city menu should be activated or not.
+
+-->
+<label for="statemenu">Please Choose a State: </label>
+<select name="statemenu" id="statemenu" ng-options="state.code for state in states" ng-model='myState' ng-change='checkCity()' class="mapOptions"></select>

@@ -1,0 +1,7 @@
+<!-- city-menu.htm 
+  Description:  Very simple directive that displays the city menu. When the menu is changed,
+  it calls the updateMapCenter method which will recenter the map to the city of choosing. 
+
+-->
+<label for="citymenu">Please Choose a City: </label>
+<select name="citymenu" id="citymenu" ng-options="city.name for city in cities" ng-model='myCity' ng-change='updateMapCenter()' class="mapOptions"></select>
